@@ -55,10 +55,12 @@ All services communicate over a user-defined Docker bridge network. Orders place
    ```bash
    docker-compose down
 
+---
 
 ## 🚧 API Reference
-![API Reference](https://github.com/user-attachments/assets/acd43348-4757-4032-937b-16ad22ebec2d)
+![API Reference](API_Reference.png)
 
+---
 
 ## 🛠️ Frontend
 1. **Local Development**
