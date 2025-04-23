@@ -35,6 +35,45 @@ All services communicate over a user-defined Docker bridge network. Orders place
    cd bakery-system
    cp backend/.env.example backend/.env
    cp frontend/.env.example frontend/.env
+   
+2. **Build and Run**
+   ```bash
+   docker compose build --no-cache
+   docker compose up -d
 
+3. **Verify Services**
+   ```bash
+   docker-compose ps
+   docker stats
+
+4. **Open UIs**
+   - API docs (Swagger): http://localhost:8000/docs
+   - Frontend: http://localhost:3000
+   - RabbitMQ management: http://localhost:15672 (guest/guest)
+
+5. **Shut Down**
+   ```bash
+   docker-compose down
+
+
+## 🚧 API Reference
+Method | Path | Description | Request Body | Response
+GET | /products | List all products | none | [{ id, name, price }]
+POST | /orders | Place a new order | { product_id: number, quantity: number } | { id, product: {…}, quantity, status }
+GET | /orders/{order_id} | Check order status | none | { id, product: {…}, quantity, status }
+GET | /health | Health-check for API | none | { status: "ok", details: {…} }
+
+## 🛠️ Frontend
+1. **Local Development**
+   ```bash
+   cd frontend
+   npm install
+   npm start
+- Runs on http://localhost:3000
+- Uses REACT_APP_API_URL from frontend/.env
+
+2. **Dockerized**
+   - Build-arg REACT_APP_API_URL is set to http://localhost:8000 at build time
+   - Seved by Ngnix on port 80 inside the container, mapped to host 3000
 
    
