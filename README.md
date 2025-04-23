@@ -57,11 +57,8 @@ All services communicate over a user-defined Docker bridge network. Orders place
 
 
 ## 🚧 API Reference
-Method | Path | Description | Request Body | Response
-GET | /products | List all products | none | [{ id, name, price }]
-POST | /orders | Place a new order | { product_id: number, quantity: number } | { id, product: {…}, quantity, status }
-GET | /orders/{order_id} | Check order status | none | { id, product: {…}, quantity, status }
-GET | /health | Health-check for API | none | { status: "ok", details: {…} }
+![API Reference](https://github.com/user-attachments/assets/acd43348-4757-4032-937b-16ad22ebec2d)
+
 
 ## 🛠️ Frontend
 1. **Local Development**
